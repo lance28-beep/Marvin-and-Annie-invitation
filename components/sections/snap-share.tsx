@@ -240,7 +240,7 @@ export function SnapShare() {
 
               <div className="text-center">
                 <span className="block text-xl sm:text-2xl md:text-3xl font-[family-name:var(--font-ephesis)] text-[#1A1A1A] font-normal">
-                  – Marvin & Joy –
+                  – Marvin & Annie –
                 </span>
               </div>
             </div>
