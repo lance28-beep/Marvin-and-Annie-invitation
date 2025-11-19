@@ -3,20 +3,17 @@
 import { useState, useEffect, useMemo, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Heart, Sparkles } from "lucide-react";
+import { Home, MessageCircle, MapPin, Users, Calendar, HelpCircle } from "lucide-react";
 import { siteConfig } from "@/content/site";
-import StaggeredMenu from "./StaggeredMenu";
+import Dock from "./Dock";
 
 const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#countdown", label: "Countdown" },
-  { href: "#messages", label: "Messages" },
-  { href: "#details", label: "Details" },
-  { href: "#entourage", label: "Entourage" },
-  { href: "#sponsors", label: "Sponsors" },
-  { href: "#guest-list", label: "RSVP" },
-  { href: "#registry", label: "Registry" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#home", label: "Home", icon: Home },
+  { href: "#messages", label: "Messages", icon: MessageCircle },
+  { href: "#details", label: "Details", icon: MapPin },
+  { href: "#entourage", label: "Entourage", icon: Users },
+  { href: "#guest-list", label: "RSVP", icon: Calendar },
+  { href: "#faq", label: "FAQ", icon: HelpCircle },
 ];
 
 export function Navbar() {
@@ -74,90 +71,115 @@ export function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  const menuItems = useMemo(
+  // Smooth scroll handler for dock items
+  const handleSmoothScroll = (href: string) => {
+    if (href.startsWith("#")) {
+      const targetId = href.slice(1);
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+        // Update URL hash without jumping
+        if (typeof history !== "undefined") {
+          history.replaceState(null, "", href);
+        }
+      }
+    }
+  };
+
+  // Create dock items for mobile navigation - Optimized for iPhone SE
+  const dockItems = useMemo(
     () =>
-      navLinks.map((l) => ({
-        label: l.label,
-        ariaLabel: `Go to ${l.label}`,
-        link: l.href,
-      })),
+      navLinks.map((link) => {
+        const Icon = link.icon;
+        return {
+          icon: <Icon size={18} strokeWidth={2.5} className="text-[#E8DCC8]" />,
+          label: link.label,
+          onClick: () => handleSmoothScroll(link.href),
+        };
+      }),
     [],
   );
 
   return (
-    <nav
-      className={`sticky top-0 z-50 transition-all duration-500 ease-out ${
-        isScrolled
-          ? "bg-[#E8DCC8]/98 backdrop-blur-md shadow-sm border-b border-[#3C3C3C]/15"
-          : "bg-[#E8DCC8]/95 backdrop-blur-sm border-b border-[#3C3C3C]/10"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative">
-        <div className="flex justify-between items-center h-16 sm:h-16 md:h-14">
-          <Link href="#home" className="flex-shrink-0 group relative z-10">
-            <div className="flex items-center gap-2 sm:gap-3">
-              {/* Monogram Image */}
-              <div className="relative w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 group-hover:scale-105 transition-all duration-300">
-                <Image
-                  src="/monogram/image.png"
-                  alt="Marvin & Annie Monogram"
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </div>
-
-              {/* Names */}
-              <div className="text-xs sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-semibold group-hover:text-[#3C3C3C]/70 transition-all duration-300 tracking-[0.15em] sm:tracking-[0.2em] text-[#3C3C3C] uppercase">
-                {siteConfig.couple.groomNickname} &{" "}
-                {siteConfig.couple.brideNickname}
-              </div>
-            </div>
-          </Link>
-
-          <div className="hidden md:flex gap-1 items-center">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`px-3 lg:px-4 py-1.5 text-xs lg:text-sm font-[family-name:var(--font-crimson)] font-normal tracking-wide transition-all duration-300 relative group ${
-                    isActive
-                      ? "text-[#3C3C3C]"
-                      : "text-[#3C3C3C]/70 hover:text-[#3C3C3C]"
-                  }`}
-                >
-                  {link.label}
-                  <span
-                    className={`absolute bottom-0 left-0 h-px bg-[#3C3C3C] transition-all duration-300 ${
-                      isActive ? "w-full" : "w-0 group-hover:w-full"
-                    }`}
+    <>
+      <nav
+        className={`sticky top-0 z-50 transition-all duration-500 ease-out ${
+          isScrolled
+            ? "bg-[#E8DCC8]/98 backdrop-blur-md shadow-md border-b border-[#3C3C3C]/20"
+            : "bg-[#E8DCC8]/95 backdrop-blur-sm border-b border-[#3C3C3C]/10"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 relative">
+          <div className="flex items-center h-14 sm:h-16 md:h-14 md:justify-between">
+            {/* Logo/Brand Section - Optimized for iPhone SE */}
+            <Link href="#home" className="flex-shrink-0 group relative z-10">
+              <div className="flex items-center gap-1.5 sm:gap-2.5 md:gap-3">
+                {/* Monogram Image - Responsive sizing */}
+                <div className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 flex-shrink-0 group-hover:scale-110 transition-all duration-300 ease-out">
+                  <Image
+                    src="/monogram/image.png"
+                    alt="Marvin & Annie Monogram"
+                    fill
+                    className="object-contain drop-shadow-sm"
+                    priority
                   />
-                </Link>
-              );
-            })}
-          </div>
+                </div>
 
-          <div className="md:hidden relative z-20">
-            <StaggeredMenu
-              position="left"
-              items={menuItems}
-              socialItems={[]}
-              displaySocials={false}
-              displayItemNumbering={true}
-              menuButtonColor="#3C3C3C"
-              openMenuButtonColor="#E8DCC8"
-              changeMenuColorOnOpen={true}
-              colors={["#E8DCC8", "#F0E5D3", "#3C3C3C", "#3C3C3C", "#3C3C3C"]}
-              accentColor="#3C3C3C"
-              isFixed={true}
-              onMenuOpen={() => {}}
-              onMenuClose={() => {}}
-            />
+                {/* Names - Always in a row */}
+                <div className="flex flex-row items-center gap-1">
+                  <span className="text-[0.65rem] sm:text-sm md:text-base lg:text-lg font-[family-name:var(--font-crimson)] font-bold group-hover:text-[#3C3C3C]/70 transition-all duration-300 tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] text-[#3C3C3C] uppercase leading-tight">
+                    {siteConfig.couple.groomNickname}
+                  </span>
+                  <span className="text-[0.65rem] sm:text-sm md:text-base lg:text-lg text-[#3C3C3C] font-[family-name:var(--font-crimson)] font-bold">
+                    &
+                  </span>
+                  <span className="text-[0.65rem] sm:text-sm md:text-base lg:text-lg font-[family-name:var(--font-crimson)] font-bold group-hover:text-[#3C3C3C]/70 transition-all duration-300 tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] text-[#3C3C3C] uppercase leading-tight">
+                    {siteConfig.couple.brideNickname}
+                  </span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex gap-1 lg:gap-2 items-center">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`px-2.5 lg:px-4 py-2 text-xs lg:text-sm font-[family-name:var(--font-crimson)] font-medium tracking-wide transition-all duration-300 relative group rounded-md ${
+                      isActive
+                        ? "text-[#3C3C3C] bg-[#3C3C3C]/5"
+                        : "text-[#3C3C3C]/70 hover:text-[#3C3C3C] hover:bg-[#3C3C3C]/5"
+                    }`}
+                  >
+                    {link.label}
+                    <span
+                      className={`absolute bottom-1 left-2.5 lg:left-4 right-2.5 lg:right-4 h-0.5 bg-[#3C3C3C] rounded-full transition-all duration-300 ${
+                        isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                      }`}
+                    />
+                  </Link>
+                );
+              })}
+            </div>
+
           </div>
         </div>
+      </nav>
+
+      {/* Mobile Dock Navigation - Fixed at bottom of viewport, optimized for iPhone SE */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-[100] pointer-events-none pb-safe">
+        <Dock
+          items={dockItems}
+          panelHeight={64}
+          baseItemSize={44}
+          magnification={58}
+          distance={140}
+          className="bg-[#E8DCC8]/96 backdrop-blur-lg pointer-events-auto shadow-2xl border-t border-[#3C3C3C]/10"
+        />
       </div>
-    </nav>
+    </>
   );
 }

@@ -7,49 +7,30 @@ import {
   Facebook,
   Twitter,
   Share2,
-  Copy,
-  Check,
   Download,
-  Camera,
 } from "lucide-react";
 import { Section } from "@/components/section";
 import { QRCodeCanvas } from "qrcode.react";
 
 export function SnapShare() {
-  const [copiedHashtag, setCopiedHashtag] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
   const websiteUrl =
     typeof window !== "undefined"
       ? window.location.href
       : "https://example.com";
-  const hashtags = ["#MarvinAndJoy2026", "#MarvinHeartJoy"];
-  const shareText = `Join us in celebrating Marvin & Joy's special day! Check out their wedding website: ${websiteUrl} ${hashtags.join(" ")} 💕`;
+  const shareText = `Join us in celebrating Marvin & Joy's special day! Check out their wedding website: ${websiteUrl} 💕`;
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
 
     checkMobile();
-    window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", checkMobile);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", checkMobile);
     };
   }, []);
-
-  const copyToClipboard = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopiedHashtag(true);
-      setTimeout(() => setCopiedHashtag(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy: ", err);
-    }
-  };
 
   const shareOnSocial = (
     platform: "instagram" | "facebook" | "twitter" | "tiktok",
@@ -115,83 +96,26 @@ export function SnapShare() {
                 "0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
             }}
           >
-            Snap & Share
+            Share the Love
           </h2>
 
           <p
-            className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] text-white font-light max-w-xl mx-auto leading-relaxed tracking-wide px-4"
+            className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] text-white font-light max-w-2xl mx-auto leading-relaxed tracking-wide px-4"
             style={{
               textShadow:
                 "0 0 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
             }}
           >
-            Help us capture and share the magic of our special day
+            Spread the joy! Share our wedding website with family and friends so they can join in our celebration
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto"
           variants={staggerChildren}
           initial="initial"
           animate="animate"
         >
-          {/* Hashtags Card */}
-          <motion.div
-            className="relative group"
-            variants={fadeInUp}
-            whileHover={{ y: -2 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="absolute -inset-1 bg-gradient-to-br from-[#1A1A1A]/20 to-[#1A1A1A]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
-
-            <div className="relative bg-white backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 border-2 border-[#1A1A1A]/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#1A1A1A]/60">
-              <div className="text-center space-y-6">
-                {/* Camera Icon */}
-                <div className="relative inline-flex items-center justify-center">
-                  <div className="absolute inset-0 bg-[#1A1A1A]/10 rounded-full blur-xl scale-150 animate-pulse"></div>
-                  <div className="relative w-14 h-14 sm:w-16 sm:h-16 bg-[#1A1A1A] rounded-full flex items-center justify-center shadow-lg">
-                    <Camera className="h-7 w-7 sm:h-8 sm:w-8 text-[#E8DCC8]" />
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] mb-3">
-                    Official Hashtags
-                  </h3>
-                  <p className="text-sm sm:text-base font-[family-name:var(--font-crimson)] text-[#1A1A1A]/70 mb-6">
-                    Tag your photos and videos with our hashtags to share your
-                    memories
-                  </p>
-                </div>
-
-                {/* Hashtags */}
-                <div className="space-y-4">
-                  {hashtags.map((hashtag) => (
-                    <div
-                      key={hashtag}
-                      className="flex items-center justify-center gap-3 bg-[#E8DCC8]/20 px-4 sm:px-6 py-3 sm:py-4 rounded-xl border border-[#1A1A1A]/20 hover:border-[#1A1A1A]/30 transition-all duration-300 hover:shadow-md"
-                    >
-                      <span className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] break-all sm:break-normal tracking-wide">
-                        {hashtag}
-                      </span>
-                      <button
-                        onClick={() => copyToClipboard(hashtag)}
-                        className="p-2 rounded-full bg-white hover:bg-[#E8DCC8]/50 transition-colors duration-200 shadow-sm flex-shrink-0 border border-[#1A1A1A]/20"
-                        title="Copy hashtag"
-                      >
-                        {copiedHashtag ? (
-                          <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
-                        ) : (
-                          <Copy className="w-4 h-4 sm:w-5 sm:h-5 text-[#1A1A1A]/60" />
-                        )}
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
           {/* QR Code & Social Media */}
           <motion.div className="space-y-6 sm:space-y-8" variants={fadeInUp}>
             {/* QR Code Card */}
@@ -199,9 +123,13 @@ export function SnapShare() {
               <div className="absolute -inset-1 bg-gradient-to-br from-[#1A1A1A]/20 to-[#1A1A1A]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
 
               <div className="relative bg-white backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border-2 border-[#1A1A1A]/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#1A1A1A]/60 text-center">
-                <h4 className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] mb-6">
-                  Share Our Website
+                <h4 className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] mb-4">
+                  Quick Share with QR Code
                 </h4>
+                
+                <p className="text-sm sm:text-base font-[family-name:var(--font-crimson)] text-[#1A1A1A]/70 mb-6">
+                  Let guests easily access our wedding website
+                </p>
 
                 <div className="inline-flex flex-col items-center bg-[#E8DCC8]/10 p-4 sm:p-6 rounded-xl border border-[#1A1A1A]/20 mb-4">
                   <div className="mb-4 p-3 rounded-xl bg-white shadow-md border border-[#1A1A1A]/10">
@@ -223,7 +151,7 @@ export function SnapShare() {
                 </div>
 
                 <p className="text-xs sm:text-sm font-[family-name:var(--font-crimson)] text-[#1A1A1A]/70">
-                  Scan with any camera app to visit our website
+                  Scan to instantly visit our wedding website
                 </p>
               </div>
             </div>
@@ -233,9 +161,13 @@ export function SnapShare() {
               <div className="absolute -inset-1 bg-gradient-to-br from-[#1A1A1A]/20 to-[#1A1A1A]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
 
               <div className="relative bg-white backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border-2 border-[#1A1A1A]/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#1A1A1A]/60">
-                <h5 className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] mb-6 text-center">
-                  Share on Social Media
+                <h5 className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] mb-3 text-center">
+                  Spread the Word
                 </h5>
+                
+                <p className="text-sm sm:text-base font-[family-name:var(--font-crimson)] text-[#1A1A1A]/70 mb-6 text-center">
+                  Share our celebration with your network
+                </p>
 
                 <div className="grid grid-cols-2 gap-3 sm:gap-4">
                   <button
@@ -296,8 +228,7 @@ export function SnapShare() {
 
             <div className="relative bg-white backdrop-blur-sm rounded-xl sm:rounded-2xl p-8 sm:p-10 md:p-12 border-2 border-[#1A1A1A]/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#1A1A1A]/60">
               <p className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] text-[#1A1A1A] leading-relaxed mb-6">
-                We are so excited to celebrate our love with you! See you on our
-                special day!
+                Thank you for helping us share our special day with loved ones near and far. Your support means the world to us!
               </p>
 
               {/* Decorative Line */}
