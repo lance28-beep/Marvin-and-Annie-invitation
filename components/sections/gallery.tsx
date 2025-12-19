@@ -6,9 +6,9 @@ import { Section } from "@/components/section"
 // Removed circular gallery in favor of a responsive masonry layout
 
 const galleryItems = [
-  { image: "/mobile-background/couple (3).jpg", text: " " },   
-  { image: "/mobile-background/couple (18).jpg", text: " " },
-  { image: "/mobile-background/couple (22).jpg", text: " " },
+  { image: "/mobile-background/couple (3).webp", text: " " },   
+  { image: "/mobile-background/couple (18).webp", text: " " },
+  { image: "/mobile-background/couple (22).webp", text: " " },
 
 
 ]

@@ -152,8 +152,8 @@ export default function RootLayout({
         <meta name="theme-color" content="#0A3428" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preload" as="image" href="/mobile-background/DSCF2614-min.jpg" media="(max-width: 767px)" />
-        <link rel="preload" as="image" href="/desktop-background/DSCF2444-min.jpg" media="(min-width: 768px)" />
+        <link rel="preload" as="image" href="/mobile-background/couple (1).webp" media="(max-width: 767px)" />
+        <link rel="preload" as="image" href="/desktop-background/couple (1).webp" media="(min-width: 768px)" />
       </head>
       <body className={`${inter.variable} ${greatVibes.variable} ${crimsonText.variable} ${ephesis.variable} font-inter antialiased text-foreground`}>
         <AudioProvider>
