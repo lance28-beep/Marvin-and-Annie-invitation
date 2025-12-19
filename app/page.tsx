@@ -4,6 +4,7 @@ import { Suspense } from "react"
 import dynamic from "next/dynamic"
 import { Hero } from "@/components/sections/hero"
 import { Countdown } from "@/components/sections/countdown"
+import { CoupleVideo } from "@/components/sections/couple-video"
 import { Messages } from "@/components/sections/messages"
 import { Details } from "@/components/sections/details"
 import { Entourage } from "@/components/sections/entourage"
@@ -14,6 +15,7 @@ import { FAQ } from "@/components/sections/faq"
 import { SnapShare } from "@/components/sections/snap-share"
 import { Footer } from "@/components/sections/footer"
 import BackgroundMusic from "@/components/background-music"
+import { Gallery } from "@/components/sections/gallery"
 
 const Silk = dynamic(() => import("@/components/silk"), { ssr: false })
 const GuestList = dynamic(() => import("@/components/sections/guest-list").then(mod => ({ default: mod.GuestList })), { ssr: false })
@@ -37,7 +39,9 @@ export default function Home() {
       <div className="relative z-10">
         <Hero />
         <Countdown />
+        <CoupleVideo />
         <Messages />
+      <Gallery />
         <Details />
         <Entourage />
         <PrincipalSponsors />

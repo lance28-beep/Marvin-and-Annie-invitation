@@ -322,6 +322,54 @@ export function GuestList() {
           >
             Please confirm by January 14, 2026
           </p>
+
+          {/* Venue Information */}
+          <div className="max-w-2xl mx-auto px-4 mt-6 sm:mt-8">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-4 sm:p-6 space-y-3 sm:space-y-4">
+              <div className="text-center">
+                <p
+                  className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-white font-semibold mb-2"
+                  style={{
+                    textShadow:
+                      "0 0 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
+                  }}
+                >
+                  Ceremony
+                </p>
+                <p
+                  className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-white/90 font-light"
+                  style={{
+                    textShadow:
+                      "0 0 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
+                  }}
+                >
+                  ICON Function Hall 5-7
+                </p>
+              </div>
+              <div className="border-t border-white/20"></div>
+              <div className="text-center">
+                <p
+                  className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-white font-semibold mb-2"
+                  style={{
+                    textShadow:
+                      "0 0 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
+                  }}
+                >
+                  Reception
+                </p>
+                <p
+                  className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-white/90 font-light"
+                  style={{
+                    textShadow:
+                      "0 0 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
+                  }}
+                >
+                  ICON Function Hall 1-4
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div
             className="flex items-center justify-center gap-2 text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-white/90 font-light"
             style={{

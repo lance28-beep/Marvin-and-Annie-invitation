@@ -31,60 +31,29 @@ export default async function GalleryPage() {
   ]
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#0A3428] via-[#106552]/90 to-[#0A3428] relative overflow-hidden">
-      {/* Subtle background elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Soft gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#C3A161]/5 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#C3A161]/5 to-transparent" />
-      </div>
+    <main className="min-h-screen bg-[#E8DCC8]/50 relative overflow-hidden">
+      {/* Semi-transparent overlay for better text readability */}
+      <div className="absolute inset-0 bg-white/40 backdrop-blur-sm pointer-events-none" />
 
       <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <div className="text-center mb-10 sm:mb-12">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-[#FFFFFF] mb-3 sm:mb-4 drop-shadow-md">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-crimson)] font-normal text-[#1A1A1A] mb-6 sm:mb-8 uppercase tracking-[0.12em] sm:tracking-[0.15em] drop-shadow-sm">
             Gallery
           </h1>
-          <p className="mt-3 text-[#FFFFFF]/90 font-sans font-light text-sm sm:text-base md:text-lg">A collection from our favorite moments</p>
-          <div className="mx-auto mt-4 h-px w-24 bg-gradient-to-r from-transparent via-[#C3A161]/60 to-transparent" />
+          <p className="mt-3 text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] text-[#1A1A1A] font-light tracking-wide leading-relaxed px-4">A collection from our favorite moments</p>
+          <div className="mx-auto mt-4 h-px w-24 bg-gradient-to-r from-transparent via-[#1A1A1A]/40 to-transparent" />
         </div>
 
         {images.length === 0 ? (
-          <div className="text-center text-[#FFFFFF]/80">
-            <p>No images found. Add files to <code className="px-2 py-1 bg-white/10 rounded border border-[#C3A161]/30 text-[#FFFFFF]/90">public/desktop-background</code> or <code className="px-2 py-1 bg-white/10 rounded border border-[#C3A161]/30 text-[#FFFFFF]/90">public/mobile-background</code>.</p>
+          <div className="text-center">
+            <p className="text-[#1A1A1A]/80 font-[family-name:var(--font-crimson)]">No images found. Add files to <code className="px-2 py-1 bg-[#1A1A1A]/10 rounded border border-[#1A1A1A]/30 text-[#1A1A1A]/90">public/desktop-background</code> or <code className="px-2 py-1 bg-[#1A1A1A]/10 rounded border border-[#1A1A1A]/30 text-[#1A1A1A]/90">public/mobile-background</code>.</p>
           </div>
         ) : (
           <MasonryGallery images={images} />
         )}
 
         {/* CTA Section */}
-        <div className="mt-12 sm:mt-16 md:mt-20 text-center">
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 md:p-10 border border-[#C3A161]/30 max-w-2xl mx-auto">
-            <div className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#C3A161]/20 border border-[#C3A161]/40 rounded-full text-[#C3A161] font-sans font-medium text-sm sm:text-base mb-6">
-              <span>📸</span>
-              <span>Upload Photo Coming Soon</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#FFFFFF] mb-4">
-              Share Your Moments
-            </h2>
-            <p className="text-[#FFFFFF]/90 font-sans font-light text-sm sm:text-base md:text-lg mb-6 leading-relaxed">
-              Be ready to share photos and they'll appear here! Use our wedding hashtags to share your photos and be featured in our gallery.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
-              <span className="px-4 py-2 bg-[#C3A161]/20 border border-[#C3A161]/40 rounded-full text-[#C3A161] font-sans font-medium text-sm sm:text-base">
-                #GoingBAEyond
-              </span>
-              <span className="px-4 py-2 bg-[#C3A161]/20 border border-[#C3A161]/40 rounded-full text-[#C3A161] font-sans font-medium text-sm sm:text-base">
-                #BrendanAirezToEternity
-              </span>
-            </div>
-            <Link
-              href="/#snap-share"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#C3A161] to-[#C3A161]/90 text-[#0A3428] font-semibold rounded-full border border-[#C3A161] hover:from-[#C3A161]/90 hover:to-[#C3A161] hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl font-sans"
-            >
-              Learn More About Sharing
-            </Link>
-          </div>
-        </div>
+        
       </section>
     </main>
   )

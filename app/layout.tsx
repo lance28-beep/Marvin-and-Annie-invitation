@@ -4,6 +4,7 @@ import { Great_Vibes, Inter, Crimson_Text, Ephesis } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Navbar } from "@/components/navbar"
+import { AudioProvider } from "@/contexts/audio-context"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const greatVibes = Great_Vibes({ subsets: ["latin"], weight: "400", variable: "--font-serif" })
@@ -155,9 +156,11 @@ export default function RootLayout({
         <link rel="preload" as="image" href="/desktop-background/DSCF2444-min.jpg" media="(min-width: 768px)" />
       </head>
       <body className={`${inter.variable} ${greatVibes.variable} ${crimsonText.variable} ${ephesis.variable} font-inter antialiased text-foreground`}>
-        <Navbar />
-        {children}
-        <Analytics />
+        <AudioProvider>
+          <Navbar />
+          {children}
+          <Analytics />
+        </AudioProvider>
       </body>
     </html>
   )
