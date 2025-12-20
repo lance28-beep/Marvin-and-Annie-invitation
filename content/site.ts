@@ -66,7 +66,7 @@ And now, hand in hand, heart to heart, Brendan and Airez are ready to begin thei
 }
 
 export const entourage = [
-  // Best Man & Maid/Matron of Honor
+  // Best Man & Maid of Honor
   { role: "Best Man", name: "Red Casallo" },
   { role: "Matron of Honor", name: "Imeeliza Timpug" },
 

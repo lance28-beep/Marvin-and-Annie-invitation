@@ -301,8 +301,8 @@ export function Messages() {
         </div>
 
         {/* Messages Display Section */}
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
-          {/* Top corner accents */}
+        {/* <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
+         
           <div className="absolute -top-3 -left-3 w-4 h-4 bg-[#3C3C3C]/40 rounded-full blur-sm opacity-70" />
           <div className="absolute -top-3 -right-3 w-4 h-4 bg-[#3C3C3C]/40 rounded-full blur-sm opacity-70" />
           <div className="text-center mb-10 sm:mb-14 md:mb-16">
@@ -321,7 +321,7 @@ export function Messages() {
           </div>
           
           <MessageWallDisplay messages={messages} loading={loading} />
-        </div>
+        </div> */}
 
       </div>
     </Section>

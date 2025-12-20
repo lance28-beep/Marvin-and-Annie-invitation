@@ -154,11 +154,11 @@ export function CoupleVideo() {
           <div className="h-px w-10 sm:w-14 md:w-20 bg-[#1A1A1A]/50" />
         </div>
         
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-crimson)] font-normal text-[#1A1A1A] mb-6 sm:mb-8 uppercase tracking-[0.12em] sm:tracking-[0.15em] drop-shadow-sm">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-crimson)] font-normal text-[#1A1A1A] mb-6 sm:mb-8 uppercase tracking-[0.12em] sm:tracking-[0.15em] drop-shadow-[0_4px_8px_rgba(0,0,0,0.15)]">
           The Proposal
         </h2>
         
-        <p className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] text-[#1A1A1A] font-light max-w-xl mx-auto leading-relaxed tracking-wide drop-shadow-sm px-4">
+        <p className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] text-[#1A1A1A] font-light max-w-xl mx-auto leading-relaxed tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.12)] px-4">
           Captured Proposal
         </p>
       </div>
@@ -174,10 +174,10 @@ export function CoupleVideo() {
             className="relative group"
           >
             {/* Subtle glow on hover */}
-            <div className="absolute -inset-1 bg-gradient-to-br from-[#1A1A1A]/20 to-[#1A1A1A]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
+            <div className="absolute -inset-1 bg-gradient-to-br from-[#1A1A1A]/20 to-[#1A1A1A]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
             
             {/* Elegant video frame with rounded corners */}
-            <div className="relative bg-white backdrop-blur-sm overflow-hidden rounded-xl sm:rounded-2xl border-2 border-[#1A1A1A]/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#1A1A1A]/60">
+            <div className="relative bg-white backdrop-blur-sm overflow-hidden rounded-xl sm:rounded-2xl border-2 border-[#1A1A1A]/40 shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)] transition-all duration-300 hover:border-[#1A1A1A]/60">
               
               {/* Video wrapper with 16:9 aspect ratio */}
               <div className="relative" style={{ paddingBottom: '56.25%' }}>
@@ -213,7 +213,7 @@ export function CoupleVideo() {
                         <div className="absolute inset-0 rounded-full bg-[#1A1A1A]/30 blur-2xl scale-150 group-hover:bg-[#1A1A1A]/40 group-hover:scale-[1.7] transition-all duration-300" />
                         
                         {/* Play button */}
-                        <div className="relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-white/95 backdrop-blur-sm shadow-xl group-hover:bg-white group-hover:shadow-2xl transition-all duration-300 border-2 border-[#1A1A1A]/20">
+                        <div className="relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-white/95 backdrop-blur-sm shadow-[0_10px_30px_rgba(0,0,0,0.3)] group-hover:bg-white group-hover:shadow-[0_15px_40px_rgba(0,0,0,0.4)] transition-all duration-300 border-2 border-[#1A1A1A]/20">
                           <Play className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#1A1A1A] fill-[#1A1A1A] ml-1 drop-shadow-md" />
                         </div>
                       </motion.div>
@@ -280,7 +280,7 @@ export function CoupleVideo() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-center mt-10 sm:mt-12 md:mt-14"
           >
-            <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-[#1A1A1A]/70 font-light italic max-w-2xl mx-auto leading-relaxed px-4">
+            <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-[#1A1A1A]/70 font-light italic max-w-2xl mx-auto leading-relaxed px-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]">
               The moment that changed our lives forever
             </p>
           </motion.div>

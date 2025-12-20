@@ -63,7 +63,7 @@ export function Details() {
             {/* Venue Image */}
             <div className="relative w-full h-56 sm:h-64 md:h-72 lg:h-80 xl:h-96 overflow-hidden">
               <Image
-                src="/Details/Iloilo-Convention-Center.png"
+                src="/Details/Iloilo-Convention-Center.webp"
                 alt="Iloilo Convention Center"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
