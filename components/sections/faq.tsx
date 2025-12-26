@@ -55,11 +55,7 @@ const faqItems: FAQItem[] = [
     answer:
       "The Iloilo Convention Center is located at Megaworld Blvd, Iloilo Business Park. You can use the 'Get Directions' button in the Event Details section to open Google Maps for easy navigation.",
   },
-  {
-    question: "What should I do if I need to cancel my RSVP?",
-    answer:
-      "Please contact us as soon as possible if your plans change. You can update your RSVP by searching for your name in the RSVP section.",
-  },
+
   {
     question: "When is the appropriate time to leave?",
     answer:
