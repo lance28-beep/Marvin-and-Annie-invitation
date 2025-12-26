@@ -79,6 +79,9 @@ export function FAQ() {
       id="faq"
       className="relative bg-[#E8DCC8]/80 py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden"
     >
+      {/* Semi-transparent overlay for better text readability - same as countdown section */}
+      <div className="absolute inset-0 bg-white/40 backdrop-blur-sm pointer-events-none" />
+      
       {/* Section Header */}
       <div className="relative z-10 text-center mb-12 sm:mb-16 md:mb-20 px-4 sm:px-6">
         <h2

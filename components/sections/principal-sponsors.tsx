@@ -77,6 +77,9 @@ export function PrincipalSponsors() {
       id="sponsors"
       className="relative min-h-screen py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden bg-[#E8DCC8]/80"
     >
+      {/* Semi-transparent overlay for better text readability - same as countdown section */}
+      <div className="absolute inset-0 bg-white/40 backdrop-blur-sm pointer-events-none" />
+      
       {/* Section Header */}
       <div className="relative z-10 text-center mb-12 sm:mb-16 md:mb-20 px-4 sm:px-6">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-crimson)] font-normal text-[#1A1A1A] mb-6 sm:mb-8 uppercase tracking-[0.12em] sm:tracking-[0.15em] drop-shadow-sm">

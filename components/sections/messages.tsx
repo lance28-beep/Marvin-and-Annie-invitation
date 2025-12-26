@@ -255,6 +255,9 @@ export function Messages() {
 
   return (
     <Section id="messages" className="bg-[#E8DCC8]/80 py-16 sm:py-20 md:py-24 lg:py-28">
+      {/* Semi-transparent overlay for better text readability - same as countdown section */}
+      <div className="absolute inset-0 bg-white/40 backdrop-blur-sm pointer-events-none" />
+      
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Decorative background elements */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
