@@ -80,7 +80,7 @@ export default function Home() {
         <Registry />
         <FAQ />
         <WeddingTimeline />
-        <SnapShare />
+        {/* <SnapShare /> */}
         <Footer />
       </div>
         </div>
