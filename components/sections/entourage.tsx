@@ -23,7 +23,7 @@ const ROLE_CATEGORY_ORDER = [
   "Groomsmen",
   "Bridesmaids",
   "Flower Girls",
-  "Ring/Coin Bearers",
+  "Bible & Ring Bearers",
 ];
 
 export function Entourage() {

@@ -123,10 +123,6 @@ export function PrincipalSponsors() {
                 </div>
               ) : (
                 <div className="mb-3 sm:mb-6 md:mb-8 lg:mb-10">
-                  <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-0.5 sm:gap-x-2 md:gap-x-3 mb-1.5 sm:mb-3 md:mb-4">
-                    <SectionTitle align="right" className="pr-1.5 sm:pr-3 md:pr-5">Male Principal Sponsors</SectionTitle>
-                    <SectionTitle align="left" className="pl-1.5 sm:pl-3 md:pr-5">Female Principal Sponsors</SectionTitle>
-                  </div>
                   <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-0.5 sm:gap-x-2 md:gap-x-3 gap-y-0 sm:gap-y-1.5 md:gap-y-2 items-stretch">
                     {sponsorPairs.map((pair, idx) => (
                       <>
