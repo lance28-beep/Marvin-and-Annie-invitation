@@ -4,6 +4,7 @@ import { Suspense, useState, useCallback } from "react"
 import dynamic from "next/dynamic"
 import { Hero as MainHero } from "@/components/sections/hero"
 import { Countdown } from "@/components/sections/countdown"
+import { WeddingTimeline } from "@/components/sections/wedding-timeline"
 import { Gallery } from "@/components/sections/gallery"
 import { Messages } from "@/components/sections/messages"
 import { Details } from "@/components/sections/details"
@@ -78,6 +79,7 @@ export default function Home() {
         <BookOfGuests />
         <Registry />
         <FAQ />
+        <WeddingTimeline />
         <SnapShare />
         <Footer />
       </div>

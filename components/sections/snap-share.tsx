@@ -3,10 +3,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import {
-  Instagram,
-  Facebook,
-  Twitter,
-  Share2,
   Download,
 } from "lucide-react";
 import { Section } from "@/components/section";
@@ -19,7 +15,6 @@ export function SnapShare() {
     typeof window !== "undefined"
       ? window.location.href
       : "https://example.com";
-  const shareText = `Join us in celebrating Marvin & Joy's special day! Check out their wedding website: ${websiteUrl} 💕`;
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
@@ -31,25 +26,6 @@ export function SnapShare() {
       window.removeEventListener("resize", checkMobile);
     };
   }, []);
-
-  const shareOnSocial = (
-    platform: "instagram" | "facebook" | "twitter" | "tiktok",
-  ) => {
-    const encodedUrl = encodeURIComponent(websiteUrl);
-    const encodedText = encodeURIComponent(shareText);
-
-    const urls: Record<string, string> = {
-      instagram: `https://www.instagram.com/`,
-      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
-      twitter: `https://twitter.com/intent/tweet?text=${encodedText}`,
-      tiktok: `https://www.tiktok.com/`,
-    };
-
-    const target = urls[platform];
-    if (target) {
-      window.open(target, "_blank", "width=600,height=400");
-    }
-  };
 
   const downloadQRCode = () => {
     const canvas = document.getElementById(
@@ -153,63 +129,6 @@ export function SnapShare() {
                 <p className="text-xs sm:text-sm font-[family-name:var(--font-crimson)] text-[#1A1A1A]/70">
                   Scan to instantly visit our wedding website
                 </p>
-              </div>
-            </div>
-
-            {/* Social Media Card */}
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-br from-[#1A1A1A]/20 to-[#1A1A1A]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
-
-              <div className="relative bg-white backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border-2 border-[#1A1A1A]/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#1A1A1A]/60">
-                <h5 className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] mb-3 text-center">
-                  Spread the Word
-                </h5>
-                
-                <p className="text-sm sm:text-base font-[family-name:var(--font-crimson)] text-[#1A1A1A]/70 mb-6 text-center">
-                  Share our celebration with your network
-                </p>
-
-                <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                  <button
-                    onClick={() => shareOnSocial("instagram")}
-                    className="group flex items-center justify-center gap-2 bg-gradient-to-br from-pink-500 via-purple-500 to-pink-600 text-white px-3 sm:px-4 py-3 sm:py-4 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-xl"
-                  >
-                    <Instagram className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
-                    <span className="font-[family-name:var(--font-crimson)] font-semibold text-xs sm:text-sm">
-                      Instagram
-                    </span>
-                  </button>
-
-                  <button
-                    onClick={() => shareOnSocial("facebook")}
-                    className="group flex items-center justify-center gap-2 bg-gradient-to-br from-blue-500 to-blue-700 text-white px-3 sm:px-4 py-3 sm:py-4 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-xl"
-                  >
-                    <Facebook className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
-                    <span className="font-[family-name:var(--font-crimson)] font-semibold text-xs sm:text-sm">
-                      Facebook
-                    </span>
-                  </button>
-
-                  <button
-                    onClick={() => shareOnSocial("tiktok")}
-                    className="group flex items-center justify-center gap-2 bg-gradient-to-br from-black via-gray-800 to-black text-white px-3 sm:px-4 py-3 sm:py-4 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-xl"
-                  >
-                    <Share2 className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
-                    <span className="font-[family-name:var(--font-crimson)] font-semibold text-xs sm:text-sm">
-                      TikTok
-                    </span>
-                  </button>
-
-                  <button
-                    onClick={() => shareOnSocial("twitter")}
-                    className="group flex items-center justify-center gap-2 bg-gradient-to-br from-sky-400 to-blue-500 text-white px-3 sm:px-4 py-3 sm:py-4 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-xl"
-                  >
-                    <Twitter className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
-                    <span className="font-[family-name:var(--font-crimson)] font-semibold text-xs sm:text-sm">
-                      Twitter
-                    </span>
-                  </button>
-                </div>
               </div>
             </div>
           </motion.div>
