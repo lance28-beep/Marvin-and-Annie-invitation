@@ -1,45 +1,102 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Great_Vibes, Inter, Crimson_Text, Ephesis } from "next/font/google"
+import { Great_Vibes, Inter, Imperial_Script, Cinzel, Crimson_Text, Ephesis, Anton } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
-import { Navbar } from "@/components/navbar"
-import { AudioProvider } from "@/contexts/audio-context"
+import { siteConfig } from "@/content/site"
+import { ClientLayout } from "@/components/client-layout"
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://marvin-and-annie-invitation.vercel.app/"
+const canonicalUrl = siteUrl.replace(/\/$/, "")
+const desktopHero = "/Details/LinkPreview.jpg"
+const mobileHero = "/Details/LinkPreview.jpg"
+const eventImageUrl = `${canonicalUrl}${desktopHero}`
+
+const coupleNames = `${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname}`
+const eventTitle = `${coupleNames} - Wedding Invitation`
+const eventDescription = `Celebrate the wedding of ${siteConfig.couple.groomNickname} and ${siteConfig.couple.brideNickname} on ${siteConfig.wedding.date} at ${siteConfig.ceremony.venue}. RSVP, explore their story, and find everything you need to join the celebration.`
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: `${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname} Wedding`,
+  startDate: "2026-03-06T14:00:00+08:00",
+  endDate: "2026-03-06T22:00:00+08:00",
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  location: [
+    {
+      "@type": "Place",
+      name: siteConfig.ceremony.venue,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: siteConfig.ceremony.venue,
+        addressLocality: siteConfig.ceremony.location,
+        addressRegion: siteConfig.ceremony.location,
+        addressCountry: "PH",
+      },
+    },
+    {
+      "@type": "Place",
+      name: siteConfig.reception.venue,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: siteConfig.reception.location,
+        addressLocality: siteConfig.reception.location,
+        addressRegion: siteConfig.reception.location,
+        addressCountry: "PH",
+      },
+    },
+  ],
+  image: [eventImageUrl],
+  description:
+    `You're invited to celebrate the wedding of ${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname}. Discover ceremony and reception details, RSVP, and explore their story.`,
+  organizer: {
+    "@type": "Person",
+    name: coupleNames,
+  },
+  eventHashtag: `#${siteConfig.couple.groomNickname}And${siteConfig.couple.brideNickname}SayIDo`,
+}
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const greatVibes = Great_Vibes({ subsets: ["latin"], weight: "400", variable: "--font-serif" })
-const crimsonText = Crimson_Text({ 
-  subsets: ["latin"], 
-  weight: ["400", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-crimson" 
-})
-const ephesis = Ephesis({ 
-  subsets: ["latin"], 
-  weight: "400",
-  variable: "--font-ephesis" 
-})
+const imperialScript = Imperial_Script({ subsets: ["latin"], weight: "400", variable: "--font-imperial-script" })
+const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-cinzel" })
+const crimsonText = Crimson_Text({ subsets: ["latin"], weight: ["400", "600", "700"], variable: "--font-crimson" })
+const ephesis = Ephesis({ subsets: ["latin"], weight: "400", variable: "--font-ephesis" })
+const anton = Anton({ subsets: ["latin"], weight: "400", variable: "--font-anton" })
 
 export const metadata: Metadata = {
-  title: "Marvin & Annie - Wedding Invitation",
-  description:
-    "You're invited to the wedding of Marvin & Annie! Join us on March 14, 2026 in Iloilo Convention Center. RSVP, read our love story, view our gallery, and leave a message for the couple.",
+  metadataBase: new URL(canonicalUrl),
+  title: {
+    default: eventTitle,
+    template: `%s | ${coupleNames}`,
+  },
+  description: eventDescription,
   keywords:
-    "Marvin & Annie wedding, Filipino wedding, RSVP, wedding gallery, wedding message wall, wedding invitation, 2026 weddings, love story, guestbook, wedding registry, wedding details, wedding venues Iloilo Convention Center, #MarvinAndAnnieWedding",
+    `${siteConfig.couple.groomNickname} ${siteConfig.couple.brideNickname} wedding, ${siteConfig.ceremony.venue} wedding, ${siteConfig.reception.venue} wedding, wedding invitation, RSVP, wedding gallery, message wall, love story, #${siteConfig.couple.groomNickname}And${siteConfig.couple.brideNickname}SayIDo`,
+  applicationName: `${coupleNames} Wedding Invitation`,
   authors: [
-    { name: "Marvin" },
-    { name: "Annie" },
+    { name: siteConfig.couple.groomNickname },
+    { name: siteConfig.couple.brideNickname },
   ],
-  creator: "Marvin & Annie",
-  publisher: "Marvin & Annie",
+  creator: coupleNames,
+  publisher: coupleNames,
+  category: "Event",
   formatDetection: {
     email: false,
     address: false,
     telephone: true,
   },
-  metadataBase: new URL("https://Marvin-and-Annie-invitation.vercel.app/"),
+  colorScheme: "light",
+  themeColor: "#525E2C",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    viewportFit: "cover",
+  },
   alternates: {
-    canonical: "https://Marvin-and-Annie-invitation.vercel.app/",
+    canonical: canonicalUrl,
   },
   icons: {
     icon: [
@@ -49,41 +106,38 @@ export const metadata: Metadata = {
     shortcut: "/favicon_io/favicon.ico",
     apple: "/favicon_io/apple-touch-icon.png",
     other: [
-      {
-        rel: "android-chrome-192x192",
-        url: "/favicon_io/android-chrome-192x192.png",
-      },
-      {
-        rel: "android-chrome-512x512",
-        url: "/favicon_io/android-chrome-512x512.png",
-      },
+      { rel: "android-chrome-192x192", url: "/favicon_io/android-chrome-192x192.png" },
+      { rel: "android-chrome-512x512", url: "/favicon_io/android-chrome-512x512.png" },
     ],
   },
   manifest: "/favicon_io/site.webmanifest",
   openGraph: {
-    title: "Marvin & Annie Wedding | March 14, 2026",
+    title: `${coupleNames} | ${siteConfig.wedding.date}`,
     description:
-      "Celebrate the union of Marvin & Annie on March 14, 2026 in Iloilo Convention Center. Discover our love story, RSVP, view the gallery, and leave your wishes!",
-    url: "https://Marvin-and-Annie-invitation.vercel.app/",
-    siteName: "Marvin and Annie Wedding ",
+      `Celebrate the union of ${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname} on ${siteConfig.wedding.date}. Discover their story, RSVP, and find important details for the ceremony and reception.`,
+    url: canonicalUrl,
+    siteName: `${coupleNames} Wedding`,
     locale: "en_PH",
     type: "website",
     images: [
       {
-        url: "https://Marvin-and-Annie-invitation.vercel.app/Details/image.png",
+        url: eventImageUrl,
+        secureUrl: eventImageUrl,
         width: 1200,
         height: 630,
-        alt: "Marvin & Annie Wedding Invitation - March 14, 2026",
+        type: "image/jpeg",
+        alt: `${coupleNames} Wedding Invitation - ${siteConfig.wedding.date}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marvin & Annie Wedding Invitation",
+    title: `${coupleNames} Wedding Invitation`,
     description:
-      "You're invited to the wedding of Marvin & Annie! March 14, 2026. RSVP, view our gallery, and leave a message! #MarvinAndAnnieWedding",
-    images: ["https://Marvin-and-Annie-invitation.vercel.app/Details/image.png"],
-    creator: "@marvinandannie",
+      `You're invited to the wedding of ${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname} on ${siteConfig.wedding.date}. RSVP, explore their story, and get all the details for the big day! #${siteConfig.couple.groomNickname}And${siteConfig.couple.brideNickname}SayIDo`,
+    images: [eventImageUrl],
+    creator: `@${siteConfig.couple.groomNickname}And${siteConfig.couple.brideNickname}`,
+    site: `@${siteConfig.couple.groomNickname}And${siteConfig.couple.brideNickname}`,
   },
   robots: {
     index: true,
@@ -96,48 +150,10 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-site-verification",
-  },
-  other: {
-    "application/ld+json": JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Event",
-      name: "Marvin & Annie Wedding",
-      startDate: "2026-02-14T14:00:00+08:00",
-      endDate: "2026-02-14T22:00:00+08:00",
-      eventStatus: "https://schema.org/EventScheduled",
-      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-      location: [
-        {
-          "@type": "Place",
-          name: "Iloilo Convention Center",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "M.J. Cuenco Avenue, Brgy. Mandurriao, Iloilo City",
-            addressLocality: "Iloilo City",
-            addressRegion: "Iloilo",
-            postalCode: "5000",
-            addressCountry: "PH",
-          },
-        },
-      ],
-      image: ["https://Marvin-and-Annie-invitation.vercel.app/Details/image.png"],
-      description:
-        "You're invited to the wedding of Marvin & Annie! Join us on March 14, 2026 in Iloilo Convention Center. RSVP, read our love story, view our gallery, and leave a message for the couple.",
-      organizer: {
-        "@type": "Person",
-        name: "Marvin & Annie",
-      },
-      offers: {
-        "@type": "Offer",
-        url: "https://Marvin-and-Annie-invitation.vercel.app/",
-        availability: "https://schema.org/InStock",
-        price: "0",
-        priceCurrency: "PHP",
-      },
-        eventHashtag: "#MarvinAndAnnieWedding",
-    }),
+  appleWebApp: {
+    title: coupleNames,
+    statusBarStyle: "default",
+    capable: true,
   },
 }
 
@@ -149,18 +165,27 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#0A3428" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="color-scheme" content="light" />
+        <meta name="theme-color" content="#525E2C" />
+        <meta name="format-detection" content="telephone=yes,email=no,address=no" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preload" as="image" href="/mobile-background/couple (1).webp" media="(max-width: 767px)" />
-        <link rel="preload" as="image" href="/desktop-background/couple (1).webp" media="(min-width: 768px)" />
+        <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet" />
+        <link rel="preload" as="image" href={mobileHero} media="(max-width: 767px)" />
+        <link rel="preload" as="image" href={desktopHero} media="(min-width: 768px)" />
+        <link rel="preload" as="image" href="/Details/St. Augustine Parish Church.jpg" />
+        <link rel="preload" as="image" href="/Details/La Mariposa Tagaytay Events Place.jpg" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
-      <body className={`${inter.variable} ${greatVibes.variable} ${crimsonText.variable} ${ephesis.variable} font-inter antialiased text-foreground`}>
-        <AudioProvider>
-          <Navbar />
+      <body
+        className={`${inter.variable} ${greatVibes.variable} ${imperialScript.variable} ${cinzel.variable} ${crimsonText.variable} ${ephesis.variable} ${anton.variable} font-inter antialiased text-foreground`}
+      >
+        <ClientLayout>
           {children}
           <Analytics />
-        </AudioProvider>
+        </ClientLayout>
       </body>
     </html>
   )

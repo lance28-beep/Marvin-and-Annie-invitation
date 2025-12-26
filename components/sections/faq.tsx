@@ -60,6 +60,11 @@ const faqItems: FAQItem[] = [
     answer:
       "Please contact us as soon as possible if your plans change. You can update your RSVP by searching for your name in the RSVP section.",
   },
+  {
+    question: "When is the appropriate time to leave?",
+    answer:
+      "It took us a full year to plan this wedding, and we truly hope it's an evening everyone enjoys.\n\nWe kindly ask our guests to stay with us until the end of the program, as we've planned something special and meaningful to conclude the celebration. If you do need to leave earlier, we would absolutely love the chance to personally thank you and say goodbye before you go—perhaps after the same-day video is played.\n\nYour presence means so much to us, and we're incredibly grateful to be celebrating this moment together.\n\nDon't eat and run",
+  },
 ];
 
 export function FAQ() {
