@@ -1,20 +1,22 @@
 "use client"
 
 import { Section } from "@/components/section"
-import { Clock, Heart } from "lucide-react"
+import { Heart } from "lucide-react"
+import Image from "next/image"
 
 interface TimelineEvent {
   time: string
   event: string
+  image: string
 }
 
 const timelineEvents: TimelineEvent[] = [
-  { time: "2:00 PM", event: "Ceremony" },
-  { time: "4:00 PM", event: "Photo Taking" },
-  { time: "4:30 PM", event: "Cocktail Hour" },
-  { time: "6:00 PM", event: "Start of the Program" },
-  { time: "7:00 PM", event: "Dinner Time" },
-  { time: "9:00 PM", event: "After Party" },
+  { time: "2:00 PM", event: "Ceremony", image: "/TimelineImage/Ceremony.png" },
+  { time: "4:00 PM", event: "Photo Taking", image: "/TimelineImage/PhotoTaking.png" },
+  { time: "4:30 PM", event: "Cocktail Hour", image: "/TimelineImage/CocktailHour.png" },
+  { time: "6:00 PM", event: "Start of the Program", image: "/TimelineImage/StartoftheProgram.png" },
+  { time: "7:00 PM", event: "Dinner Time", image: "/TimelineImage/DinnerTime.png" },
+  { time: "9:00 PM", event: "After Party", image: "/TimelineImage/AfterParty.png" },
 ]
 
 export function WeddingTimeline() {
@@ -65,28 +67,21 @@ export function WeddingTimeline() {
               {/* Timeline Events - Compact spacing for mobile */}
               <div className="relative">
                 {/* Central timeline line - neutral */}
-                <div className="absolute left-6 sm:left-8 md:left-10 lg:left-12 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#6B6B6B]/20 via-[#1A1A1A]/20 to-[#6B6B6B]/20 hidden sm:block" />
+                <div className="absolute left-8 sm:left-10 md:left-12 lg:left-16 xl:left-[4.5rem] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#6B6B6B]/20 via-[#1A1A1A]/20 to-[#6B6B6B]/20 hidden sm:block" />
                 
                 <div className="space-y-5 sm:space-y-6 md:space-y-8 lg:space-y-10 xl:space-y-12">
                   {timelineEvents.map((item, index) => (
                     <div key={index} className="relative">
                       <div className="flex items-start gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10">
-                        {/* Time badge - Smaller on mobile */}
+                        {/* Timeline image */}
                         <div className="flex-shrink-0 relative z-10">
-                          <div className="relative group/item">
-                            {/* Outer glow ring - neutral */}
-                            <div className="absolute -inset-2 bg-[#6B6B6B]/15 rounded-full opacity-0 group-hover/item:opacity-100 transition-opacity duration-500 blur-md" />
-                            
-                            {/* Main badge - Compact size for mobile */}
-                            <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 bg-gradient-to-br from-[#6B6B6B] to-[#3C3C3C] rounded-full flex items-center justify-center shadow-lg border-2 border-white/50">
-                              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-transparent" />
-                              <Clock className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 text-white relative z-10 drop-shadow-sm" />
-                            </div>
-                            
-                            {/* Decorative dots around badge - neutral */}
-                            <div className="absolute -top-1 -right-1 w-2 h-2 sm:w-3 sm:h-3 bg-[#6B6B6B]/30 rounded-full blur-sm" />
-                            <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#3C3C3C]/30 rounded-full blur-sm" />
-                          </div>
+                          <Image
+                            src={item.image}
+                            alt={item.event}
+                            width={96}
+                            height={96}
+                            className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-36 xl:h-36 object-contain"
+                          />
                         </div>
                         
                         {/* Event content - Compact typography for mobile */}
@@ -104,7 +99,7 @@ export function WeddingTimeline() {
                       
                       {/* Elegant connecting line for mobile - neutral */}
                       {index < timelineEvents.length - 1 && (
-                        <div className="absolute left-6 top-14 sm:hidden w-0.5 h-6 bg-gradient-to-b from-[#6B6B6B]/20 to-[#1A1A1A]/20" />
+                        <div className="absolute left-8 top-20 sm:hidden w-0.5 h-6 bg-gradient-to-b from-[#6B6B6B]/20 to-[#1A1A1A]/20" />
                       )}
                     </div>
                   ))}

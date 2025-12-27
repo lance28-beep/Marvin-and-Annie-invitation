@@ -41,17 +41,17 @@ export function Hero() {
           </p>
 
           {/* Groom Name */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-[family-name:var(--font-crimson)] font-normal text-[#3C3C3C] uppercase tracking-[0.12em] sm:tracking-[0.15em] leading-tight px-2">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-[family-name:var(--font-crimson)] font-normal text-[#3C3C3C] uppercase tracking-[0.12em] sm:tracking-[0.15em] leading-tight px-2 mb-2 sm:mb-3 md:mb-4">
             MARVIN ROY
           </h1>
 
           {/* And - Script Style */}
-          <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-ephesis)] text-[#3C3C3C] -my-2 sm:-my-3">
+          <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-ephesis)] text-[#3C3C3C] -my-2 sm:-my-3 pb-2 sm:pb-3 md:pb-4">
             and
           </p>
 
           {/* Bride Name */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-[family-name:var(--font-crimson)] font-normal text-[#3C3C3C] uppercase tracking-[0.12em] sm:tracking-[0.15em] leading-tight px-2">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-[family-name:var(--font-crimson)] font-normal text-[#3C3C3C] uppercase tracking-[0.12em] sm:tracking-[0.15em] leading-tight px-2 mb-2 sm:mb-3 md:mb-4">
             ANNIE JOY
           </h1>
 
@@ -73,7 +73,7 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 md:gap-3 text-[#3C3C3C]">
               <span className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] uppercase tracking-wider">SATURDAY</span>
               <span className="text-5xl sm:text-5xl md:text-6xl font-[family-name:var(--font-crimson)] font-light my-1 sm:my-0">14</span>
-              <span className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] uppercase tracking-wider">2 O'CLOCK</span>
+              <span className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] uppercase tracking-wider">2:00 PM</span>
             </div>
             
             <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-light text-[#3C3C3C]">

@@ -293,90 +293,42 @@ export function GuestList() {
     >
       {/* Section Header */}
       <div className="relative z-10 text-center mb-12 sm:mb-16 md:mb-20 px-4 sm:px-6">
-        <h2
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-crimson)] font-normal text-white mb-6 sm:mb-8 uppercase tracking-[0.12em] sm:tracking-[0.15em]"
-          style={{
-            textShadow:
-              "0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
-          }}
-        >
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-crimson)] font-normal text-[#1A1A1A] mb-6 sm:mb-8 uppercase tracking-[0.12em] sm:tracking-[0.15em] drop-shadow-sm">
           RSVP
         </h2>
 
         <div className="space-y-4 sm:space-y-5">
-          <p
-            className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] text-white font-light max-w-xl mx-auto leading-relaxed tracking-wide px-4"
-            style={{
-              textShadow:
-                "0 0 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
-            }}
-          >
+          <p className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] text-[#1A1A1A] font-light max-w-xl mx-auto leading-relaxed tracking-wide drop-shadow-sm px-4">
             We look forward to celebrating with you!
           </p>
-          <p
-            className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-white/90 font-medium max-w-xl mx-auto leading-relaxed tracking-wide px-4"
-            style={{
-              textShadow:
-                "0 0 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
-            }}
-          >
+          <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-[#1A1A1A] font-medium max-w-xl mx-auto leading-relaxed tracking-wide drop-shadow-sm px-4">
             Please confirm by January 14, 2026
           </p>
 
           {/* Venue Information */}
           <div className="max-w-2xl mx-auto px-4 mt-6 sm:mt-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-4 sm:p-6 space-y-3 sm:space-y-4">
+            <div className="bg-white/95 backdrop-blur-sm rounded-xl border border-[#1A1A1A]/20 p-4 sm:p-6 space-y-3 sm:space-y-4">
               <div className="text-center">
-                <p
-                  className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-white font-semibold mb-2"
-                  style={{
-                    textShadow:
-                      "0 0 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
-                  }}
-                >
+                <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-[#1A1A1A] font-semibold mb-2">
                   Ceremony
                 </p>
-                <p
-                  className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-white/90 font-light"
-                  style={{
-                    textShadow:
-                      "0 0 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
-                  }}
-                >
+                <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-[#1A1A1A] font-light">
                   ICON Function Hall 5-7
                 </p>
               </div>
-              <div className="border-t border-white/20"></div>
+              <div className="border-t border-[#1A1A1A]/20"></div>
               <div className="text-center">
-                <p
-                  className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-white font-semibold mb-2"
-                  style={{
-                    textShadow:
-                      "0 0 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
-                  }}
-                >
+                <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-[#1A1A1A] font-semibold mb-2">
                   Reception
                 </p>
-                <p
-                  className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-white/90 font-light"
-                  style={{
-                    textShadow:
-                      "0 0 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
-                  }}
-                >
+                <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-[#1A1A1A] font-light">
                   ICON Function Hall 1-4
                 </p>
               </div>
             </div>
           </div>
 
-          <div
-            className="flex items-center justify-center gap-2 text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-white/90 font-light"
-            style={{
-              textShadow:
-                "0 0 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
-            }}
-          >
+          <div className="flex items-center justify-center gap-2 text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-[#1A1A1A] font-light drop-shadow-sm">
             <Phone className="h-3 w-3 sm:h-4 sm:w-4" />
             <span>Contact us at: 09088993835 / 09453324669</span>
           </div>
