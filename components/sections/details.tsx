@@ -119,7 +119,7 @@ export function Details() {
 
                 {/* Time */}
                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] tracking-wide">
-                  2 O'CLOCK
+                  2:00 PM
                 </p>
               </div>
 

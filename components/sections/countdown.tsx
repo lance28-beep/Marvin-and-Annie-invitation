@@ -177,7 +177,7 @@ export function Countdown() {
               
               {/* Time */}
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] tracking-wide mb-4 sm:mb-5 drop-shadow-sm">
-                2 O'CLOCK
+                2:00 PM
               </p>
               
               {/* Bottom decorative line */}
