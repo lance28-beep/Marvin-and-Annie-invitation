@@ -217,7 +217,7 @@ export function Details() {
                 {/* Ninang */}
                 <div className="relative bg-gradient-to-br from-[#E8DCC8]/30 via-[#E8DCC8]/20 to-white rounded-xl p-5 sm:p-6 md:p-7 border border-[#1A1A1A]/20 hover:border-[#1A1A1A]/40 transition-all duration-300 hover:shadow-md group/card">
                   <div className="text-center">
-                    <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-[#1A1A1A] rounded-full mb-4 sm:mb-5 group-hover/card:scale-105 transition-transform duration-300">
+                    <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-[#00674F] rounded-full mb-4 sm:mb-5 group-hover/card:scale-105 transition-transform duration-300">
                       <span className="text-[#E8DCC8] text-xl sm:text-2xl font-[family-name:var(--font-crimson)] font-semibold">N</span>
                     </div>
                     <p className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] mb-2 sm:mb-3 uppercase tracking-wide">
