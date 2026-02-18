@@ -237,22 +237,6 @@ export function Details() {
                 <div className="h-px w-12 sm:w-16 md:w-20 bg-[#1A1A1A]/40" />
               </div>
               
-              {/* Color Palette - Single instance at bottom */}
-              <div className="text-center bg-gradient-to-br from-[#1A1A1A]/5 via-transparent to-[#1A1A1A]/5 rounded-xl p-5 sm:p-6 md:p-7">
-                <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] uppercase tracking-wider mb-4 sm:mb-5">
-                  Color Palette
-                </p>
-                <div className="flex justify-center gap-4 sm:gap-5 md:gap-6">
-                  <div className="flex flex-col items-center gap-2 sm:gap-2.5">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full shadow-lg border-3 border-white bg-[#000000] hover:scale-110 hover:shadow-xl transition-all duration-300 ring-2 ring-[#1A1A1A]/20" />
-                    <span className="text-xs sm:text-sm font-[family-name:var(--font-crimson)] font-medium text-[#1A1A1A]/70">Black</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 sm:gap-2.5">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full shadow-lg border-3 border-white bg-[#047857] hover:scale-110 hover:shadow-xl transition-all duration-300 ring-2 ring-[#1A1A1A]/20" />
-                    <span className="text-xs sm:text-sm font-[family-name:var(--font-crimson)] font-medium text-[#1A1A1A]/70">Emerald Green</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 

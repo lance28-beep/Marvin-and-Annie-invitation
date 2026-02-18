@@ -18,7 +18,7 @@ const faqItems: FAQItem[] = [
   {
     question: "What is the dress code?",
     answer:
-      "Principal Sponsors (Ninong): Black suit\nPrincipal Sponsors (Ninang): Long gown in Black or Emerald Green\n\nGuests (Gentlemen): Long-sleeved shirt or suit (optional)\nGuests (Ladies): Long gown or long dress in Beige, Chocolate brown, or Taupe\n\nPlease note: T-shirts, denim, and sports shoes are not permitted.",
+      "Principal Sponsors (Ninong): Black suit\nPrincipal Sponsors (Ninang): Long gown Emerald Green\n\nGuests (Gentlemen): Long-sleeved shirt or suit (optional)\nGuests (Ladies): Long gown or long dress in Beige, Chocolate brown, or Taupe\n\nPlease note: T-shirts, denim, and sports shoes are not permitted.",
   },
   {
     question: "When is the RSVP deadline?",
