@@ -224,7 +224,7 @@ export function Details() {
                       Ninang
                     </p>
                     <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-[#1A1A1A]/70 leading-relaxed">
-                      Long gown
+                    Emeral green Long gown
                     </p>
                   </div>
                 </div>
